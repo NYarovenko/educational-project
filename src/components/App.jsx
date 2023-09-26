@@ -1,27 +1,33 @@
-import { useState } from 'react';
-
 export const App = () => {
-  const [count, setCount] = useState(0);
-
-  function handleclick() {
-    setCount(count + 1);
-  }
-
   return (
     <>
-      <p>Hi</p>
-      <MyButton count={count} onClick={handleclick} />
-      <MyButton count={count} onClick={handleclick} />
-      <MyButton count={count} onClick={handleclick} />
+      <Board />
     </>
   );
 };
 
-function MyButton({ count, onClick }) {
-  // console.log(count);
+function Square({ value }) {
+  return <button className="square">{value}</button>;
+}
+
+function Board() {
   return (
     <>
-      <button onClick={onClick}>Clicked {count} times</button>
+      <div className="board-row">
+        <Square value="1" />
+        <Square value="2" />
+        <Square value="3" />
+      </div>
+      <div className="board-row">
+        <Square value="4" />
+        <Square value="5" />
+        <Square value="6" />
+      </div>
+      <div className="board-row">
+        <Square value="7" />
+        <Square value="8" />
+        <Square value="9" />
+      </div>
     </>
   );
 }
